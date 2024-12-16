@@ -1,0 +1,168 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "id": 2,
+      "name": "Неизвестный герой",
+      "description": "Скрывающийся в тени",
+      "element": "wind"
+    },
+    {
+      "id": 3,
+      "name": "Морской герой",
+      "description": "Как аквамен, но не из DC",
+      "element": "water"
+    },
+    {
+      "name": "Shoshana Hernandez",
+      "description": "Doloremque assumenda",
+      "element": "wind",
+      "id": "4806333a-e8a2-4742-80eb-108230783d00"
+    },
+    {
+      "name": "Alexander Graves",
+      "description": "Et et aliquam aut ex",
+      "element": "wind",
+      "id": "321d5bf3-f5db-47aa-8bc7-6c124252a9a9"
+    },
+    {
+      "name": "Jescie Price",
+      "description": "Sed facilis molestia",
+      "element": "wind",
+      "id": "0db3abd5-3cfe-48ad-a9e4-210c1deb7e1c"
+    },
+    {
+      "name": "Heather Lee",
+      "description": "Cillum qui nulla dol",
+      "element": "earth",
+      "id": "5942512f-b1ac-422b-b5ab-bfe35d36d492"
+    },
+    {
+      "name": "Chiquita Dawson",
+      "description": "Recusandae Est sap",
+      "element": "fire",
+      "id": "de6b46cb-7f6b-43d0-9212-3471cdc9b01c"
+    },
+    {
+      "name": "Zahir Townsend",
+      "description": "Non in sed doloremqu",
+      "element": "earth",
+      "id": "df4f00a9-8d92-4e06-8284-e77c689cae8e"
+    },
+    {
+      "name": "Colorado Black",
+      "description": "Doloremque eiusmod c",
+      "element": "Я владею элементом...",
+      "id": "22f75ccf-9fab-4427-bd06-1e593d06e0e1"
+    },
+    {
+      "name": "Gretchen Mason",
+      "description": "Consequatur Officia",
+      "element": "water",
+      "id": "6c36fb27-b95e-4dde-8b8c-43b5888e9cb1"
+    },
+    {
+      "name": "Georgia Mcgowan",
+      "description": "Eos animi esse rep",
+      "element": "wind",
+      "id": "ed74972d-48c8-48e1-9159-5b8ac76d6a5b"
+    },
+    {
+      "name": "Bert Mcmahon",
+      "description": "Fugit totam saepe i",
+      "element": "earth",
+      "id": "a599e56d-f732-4611-ae66-6562cfaefd45"
+    },
+    {
+      "name": "Hilary Sparks",
+      "description": "Perferendis dolor vo",
+      "element": "fire",
+      "id": "95df9f8a-1139-456e-b878-2b6099e40964"
+    },
+    {
+      "name": "Heidi Morris",
+      "description": "Qui quasi aliquam re",
+      "element": "water",
+      "id": "1d9aa6dc-c478-4f88-b799-791908bdc2bf"
+    },
+    {
+      "name": "Kristen Hayes",
+      "description": "Distinctio Possimus",
+      "element": "fire",
+      "id": "d6d5d0f1-944f-4cdf-8870-cfa92fdc7ec5"
+    },
+    {
+      "name": "Maxwell Forbes",
+      "description": "Inventore in asperio",
+      "element": "water",
+      "id": "dc283aa8-b1dc-4eca-85ed-4a920c479584"
+    },
+    {
+      "name": "Remedios Young",
+      "description": "Sed ut ipsum neque ",
+      "element": "fire",
+      "id": "773880f7-7be6-4fd9-a77d-454f93e20485"
+    },
+    {
+      "name": "Forrest Conrad",
+      "description": "Voluptas magnam occa",
+      "element": "fire",
+      "id": "cef0a1e8-5325-42fa-ad25-098c2e213a78"
+    }
+  ],
+  "filters": [
+    {
+      "id": 0,
+      "element": "all",
+      "name": "Все",
+      "className": "btn-outline-dark"
+    },
+    {
+      "id": 1,
+      "element": "fire",
+      "name": "Огонь",
+      "className": "btn-danger"
+    },
+    {
+      "id": 2,
+      "element": "water",
+      "name": "Вода",
+      "className": "btn-primary"
+    },
+    {
+      "id": 3,
+      "element": "wind",
+      "name": "Ветер",
+      "className": "btn-success"
+    },
+    {
+      "id": 4,
+      "element": "earth",
+      "name": "Земля",
+      "className": "btn-secondary"
+    }
+  ],
+  "elementsList": [
+    {
+      "value": "fire",
+      "name": "Огонь"
+    },
+    {
+      "value": "water",
+      "name": "Вода"
+    },
+    {
+      "value": "wind",
+      "name": "Ветер"
+    },
+    {
+      "value": "earth",
+      "name": "Земля"
+    }
+  ]
+}
