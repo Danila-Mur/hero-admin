@@ -55,12 +55,6 @@
       "id": "df4f00a9-8d92-4e06-8284-e77c689cae8e"
     },
     {
-      "name": "Colorado Black",
-      "description": "Doloremque eiusmod c",
-      "element": "Я владею элементом...",
-      "id": "22f75ccf-9fab-4427-bd06-1e593d06e0e1"
-    },
-    {
       "name": "Gretchen Mason",
       "description": "Consequatur Officia",
       "element": "water",
@@ -125,6 +119,12 @@
       "description": "Qui officia ut moles",
       "element": "wind",
       "id": "0eea6d5c-e706-4df4-b0c0-d4975731e947"
+    },
+    {
+      "name": "Mufutau Kim",
+      "description": "Explicabo Dolores q",
+      "element": "Я владею элементом...",
+      "id": "595ef12a-aaba-434a-9697-8f86e5d14294"
     }
   ],
   "filters": [

@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchFilters } from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
 import classNames from "classnames";
 import toast from "react-hot-toast";
-import { heroesFetched } from "../heroesList/heroesSlice";
-import { setFilter } from "./filtersSlice";
+import { heroesFetchedWithFilter } from "../heroesList/heroesSlice";
+import { fetchFilters, setFilter } from "./filtersSlice";
 
 export const HeroesFilters = () => {
   const { filters, activeFilterIndex } = useSelector((state) => state.filters);
@@ -13,7 +12,7 @@ export const HeroesFilters = () => {
   const { request } = useHttp();
 
   useEffect(() => {
-    dispatch(fetchFilters(request));
+    dispatch(fetchFilters());
   }, []);
 
   const onSelectFilter = (filter) => {
@@ -25,7 +24,7 @@ export const HeroesFilters = () => {
       `http://localhost:3001/heroes/${filter.element === "all" ? "" : `?element=${filter.element}`}`,
     )
       .then((data) => {
-        dispatch(heroesFetched(data));
+        dispatch(heroesFetchedWithFilter(data));
         dispatch(setFilter(filter.id));
         toast.success(`Выбран герой с элементом '${filter.name}'!`);
       })

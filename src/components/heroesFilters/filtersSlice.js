@@ -1,26 +1,43 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { useHttp } from "../../hooks/http.hook";
 
 const initialState = {
   filtersLoadingStatus: "idle",
   filters: [],
-  activeFilterIndex: 0,
+  activeFilter: 0,
 };
+
+export const fetchFilters = createAsyncThunk(
+  "heroes/fetchFilters",
+  async () => {
+    const { request } = useHttp();
+
+    return await request("http://localhost:3001/filters");
+  },
+);
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    filtersFetching: (state) => {
-      state.filtersLoadingStatus = "loading";
-    },
-    filtersFetched: (state, action) => {
-      state.filtersLoadingStatus = "idle";
-      state.filters = action.payload;
-    },
     setFilter: (state, action) => {
       state.activeFilterIndex = action.payload;
       state.filtersLoadingStatus = "idle";
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchFilters.pending, (state) => {
+        state.filtersLoadingStatus = "loading";
+      })
+      .addCase(fetchFilters.fulfilled, (state, action) => {
+        state.filtersLoadingStatus = "idle";
+        state.filters = action.payload;
+      })
+      .addCase(fetchFilters.rejected, (state) => {
+        state.filtersLoadingStatus = "error";
+      })
+      .addDefaultCase(() => {});
   },
 });
 
