@@ -1,34 +1,19 @@
-//++
-// Задача для этого компонента:
-// Фильтры должны формироваться на основании загруженных данных
-// Фильтры должны отображать только нужных героев при выборе
-// Активный фильтр имеет класс active
-// Изменять json-файл для удобства МОЖНО!
-// Представьте, что вы попросили бэкенд-разработчика об этом
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  filtersFetched,
-  filtersFetching,
-  heroesFetched,
-  heroesFetchingError,
-  setFilter,
-} from "../../actions";
+import { fetchFilters } from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
 import classNames from "classnames";
 import toast from "react-hot-toast";
+import { heroesFetched } from "../heroesList/heroesSlice";
+import { setFilter } from "./filtersSlice";
 
 export const HeroesFilters = () => {
-  const { filters, activeFilterIndex } = useSelector((state) => state);
+  const { filters, activeFilterIndex } = useSelector((state) => state.filters);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
   useEffect(() => {
-    dispatch(filtersFetching());
-    request("http://localhost:3001/filters")
-      .then((data) => dispatch(filtersFetched(data)))
-      .catch(() => dispatch(heroesFetchingError()));
+    dispatch(fetchFilters(request));
   }, []);
 
   const onSelectFilter = (filter) => {
@@ -47,7 +32,6 @@ export const HeroesFilters = () => {
       .catch((e) => console.log(e));
   };
 
-  // onCLickFilter;
   return (
     <div className="card shadow-lg mt-4">
       <div className="card-body">

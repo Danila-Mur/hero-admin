@@ -2,34 +2,23 @@ import { useHttp } from "../../hooks/http.hook";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  heroesDeleted,
-  heroesDeleting,
-  heroesDeletingError,
-  heroesFetched,
-  heroesFetching,
-  heroesFetchingError,
-} from "../../actions";
+import { fetchHeroes } from "../../actions";
 import toast from "react-hot-toast";
 import { HeroesListItem } from "../heroesListItem/HeroesListItem";
 import { Spinner } from "../spinner/Spinner";
-
-// ++
-// Задача для этого компонента:
-// При клике на "крестик" идет удаление персонажа из общего состояния
-// Усложненная задача:
-// Удаление идет и с json файла при помощи метода DELETE
+import {
+  heroesDeleted,
+  heroesDeletedError,
+  heroesDeleting,
+} from "./heroesSlice";
 
 export const HeroesList = () => {
-  const { heroes, heroesLoadingStatus } = useSelector((state) => state);
+  const { heroes, heroesLoadingStatus } = useSelector((state) => state.heroes);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
   useEffect(() => {
-    dispatch(heroesFetching());
-    request("http://localhost:3001/heroes")
-      .then((data) => dispatch(heroesFetched(data)))
-      .catch(() => dispatch(heroesFetchingError()));
+    dispatch(fetchHeroes(request));
 
     // eslint-disable-next-line
   }, []);
@@ -50,11 +39,11 @@ export const HeroesList = () => {
           });
         })
         .catch(() => {
-          dispatch(heroesDeletingError());
+          dispatch(heroesDeletedError());
           toast.error("Произошла ошибка при удалении!");
         });
     } catch (e) {
-      dispatch(heroesDeletingError());
+      dispatch(heroesDeletedError());
       toast.error("Произошла ошибка при удалении!");
       console.error(e);
     }

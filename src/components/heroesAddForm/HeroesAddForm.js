@@ -1,25 +1,14 @@
-// Задача для этого компонента:
-//++
-// Реализовать создание нового героя с введенными данными. Он должен попадать
-// в общее состояние и отображаться в списке + фильтроваться
-// Уникальный идентификатор персонажа можно сгенерировать через uiid
-// Усложненная задача:
-// Персонаж создается и в файле json при помощи метода POST
-// Дополнительно:
-// Элементы <option></option> желательно сформировать на базе
-// данных из фильтров
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import {
-  heroesCreated,
-  heroesCreating,
-  heroesCreatingError,
-} from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
 import toast from "react-hot-toast";
+import {
+  heroesCreated,
+  heroesCreateError,
+  heroesCreating,
+} from "../heroesList/heroesSlice";
 
 export const HeroesAddForm = () => {
   const [elements, setElements] = useState([]);
@@ -54,7 +43,7 @@ export const HeroesAddForm = () => {
       reset();
       toast.success("Герой успешно добавлен!");
     } catch (e) {
-      dispatch(heroesCreatingError());
+      dispatch(heroesCreateError());
       toast.error("Произошла ошибка при создании!");
       console.error(e);
     }
